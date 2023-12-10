@@ -19,11 +19,13 @@ samples, guidance on mobile development, and a full API reference.
 
 ```bash
 $ gitlab-rake "gitlab:password:reset"
+# Enter username: root
+# Enter password:
 ```
 
-Enter username: root
-Enter password:
-
-brew install gitlab-runner
-brew services start gitlab-runner
-sudo gitlab-runner register # указать http://localhost
+```bash
+$ brew install gitlab-runner
+$ brew services start gitlab-runner
+$ sudo gitlab-runner register
+# указать http://localhost
+```
