@@ -74,10 +74,12 @@ flutter_build_android_apk:
     - flutter pub get
     - flutter pub run build_runner build --delete-conflicting-outputs
   script:
-    - flutter build apk --no-tree-shake-icons --flavor development -t lib/main.dart
+    # - flutter build apk --no-tree-shake-icons --flavor development -t lib/main.dart
+    - flutter build apk --no-tree-shake-icons -t lib/main.dart
   artifacts:
     paths:
-      - build/app/outputs/flutter-apk/app-development-release.apk
+      # - build/app/outputs/flutter-apk/app-development-release.apk
+      - build/app/outputs/flutter-apk/app-release.apk
     expire_in: 7 day
   tags:
     - cd
@@ -89,10 +91,12 @@ flutter_build_android_aab:
     - flutter pub get
     - flutter pub run build_runner build --delete-conflicting-outputs
   script:
-    - flutter build appbundle --no-tree-shake-icons --flavor development -t lib/main.dart
+    # - flutter build appbundle --no-tree-shake-icons --flavor development -t lib/main.dart
+    - flutter build appbundle --no-tree-shake-icons -t lib/main.dart
   artifacts:
     paths:
-      - build/app/outputs/bundle/developmentRelease/app-development-release.aab
+      # - build/app/outputs/bundle/developmentRelease/app-development-release.aab
+      - build/app/outputs/bundle/release/app-release.aab
     expire_in: 7 day
   tags:
     - cd
