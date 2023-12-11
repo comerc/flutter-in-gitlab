@@ -136,6 +136,34 @@ $ sudo chown -R $(whoami) /Users/aka/flutter/version
 $ git credential-osxkeychain erase host=localhost protocol=http
 ```
 
+---
+
+пляски для `executor = "docker"` в `config.toml`
+
 ```bash
-sudo ln -s ~/Library/Containers/com.docker.docker/Data/docker.raw.sock /var/run/docker.sock
+$ sudo ln -s ~/Library/Containers/com.docker.docker/Data/docker.raw.sock /var/run/docker.sock
+$ docker context ls
+$ docker context use default
+```
+
+```bash
+$ git config --global --add safe.directory /Users/aka/code/project
+
+$ sudo gitlab-runner register \
+ --non-interactive \
+ --url "http://localhost" \
+ --description "via docker" \
+ --registration-token "$runner_token" \
+ --docker-image "alpine" \
+ --executor "docker" \
+ --docker-privileged \
+ --docker-volumes "/certs/client" \
+ --docker-network-mode host \
+
+$ sudo nano /etc/gitlab-runner/config.toml
+```
+
+```ini
+image = ""
+helper_image = "registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-e0218c92"
 ```
