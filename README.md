@@ -135,3 +135,7 @@ $ sudo chown -R $(whoami) /Users/aka/flutter/version
 ```bash
 $ git credential-osxkeychain erase host=localhost protocol=http
 ```
+
+```bash
+sudo ln -s ~/Library/Containers/com.docker.docker/Data/docker.raw.sock /var/run/docker.sock
+```
