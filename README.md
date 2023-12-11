@@ -102,7 +102,13 @@ For open source projects, say how it is licensed.
 
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
 
-## How to start GitLab CI/CD
+## How to start GitLab CI/CD sandbox
+
+```bash
+$ docker-compose up -d
+```
+
+Docker Desktop Terminal:
 
 ```bash
 $ gitlab-rake "gitlab:password:reset"
@@ -110,12 +116,22 @@ $ gitlab-rake "gitlab:password:reset"
 # Enter password:
 ```
 
+http://localhost/admin/runners/new
+
 ```bash
 $ brew install gitlab-runner
 $ brew services start gitlab-runner
-$ sudo gitlab-runner register
-# указать http://localhost
+$ sudo gitlab-runner register --url http://localhost
 $ sudo gitlab-runner run
+```
+
+http://localhost/admin/runners
+
+```bash
 $ git config --global --add safe.directory /Users/aka/flutter
 $ sudo chown -R $(whoami) /Users/aka/flutter/version
+```
+
+```bash
+$ git credential-osxkeychain erase host=localhost protocol=http
 ```
