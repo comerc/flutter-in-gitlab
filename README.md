@@ -108,62 +108,24 @@ If you have run out of energy or time for your project, put a note at the top of
 $ docker-compose up -d
 ```
 
-Docker Desktop Terminal:
-
 ```bash
+# In Docker Desktop Terminal:
 $ gitlab-rake "gitlab:password:reset"
 # Enter username: root
 # Enter password:
-```
-
-http://localhost/admin/runners/new
-
-```bash
-$ brew install gitlab-runner
-$ brew services start gitlab-runner
-$ sudo gitlab-runner register --url http://localhost
-$ sudo gitlab-runner run
-```
-
-http://localhost/admin/runners
-
-```bash
-$ git config --global --add safe.directory /Users/aka/flutter
-$ sudo chown -R $(whoami) /Users/aka/flutter/version
 ```
 
 ```bash
 $ git credential-osxkeychain erase host=localhost protocol=http
 ```
 
----
-
-пляски для `executor = "docker"` в `config.toml`
-
 ```bash
-$ sudo ln -s ~/Library/Containers/com.docker.docker/Data/docker.raw.sock /var/run/docker.sock
-$ docker context ls
-$ docker context use default
+$ brew install gitlab-runner
+$ sudo gitlab-runner register --url http://localhost
+$ sudo gitlab-runner run
 ```
 
 ```bash
-$ git config --global --add safe.directory /Users/aka/code/project
-
-$ sudo gitlab-runner register \
- --non-interactive \
- --url "http://localhost" \
- --description "via docker" \
- --registration-token "$runner_token" \
- --docker-image "alpine" \
- --executor "docker" \
- --docker-privileged \
- --docker-volumes "/certs/client" \
- --docker-network-mode host \
-
-$ sudo nano /etc/gitlab-runner/config.toml
-```
-
-```ini
-image = ""
-helper_image = "registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-e0218c92"
+$ git config --global --add safe.directory /Users/aka/flutter
+$ sudo chown -R $(whoami) /Users/aka/flutter/version
 ```
